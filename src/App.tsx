@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import SearchBoxComponent from './components/SearchBox';
@@ -6,13 +6,9 @@ import SearchBoxComponent from './components/SearchBox';
 const queryClient = new QueryClient();
 
 const App = () => {
-  useEffect(() => {
-    console.log(process.env.REACT_APP_WEATHER);
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
-      <section className="bg-dark-300 h-screen py-36">
+      <section className="bg-dark-300 h-screen py-14">
         <div
           className="container mx-auto bg-dark-900 h-full p-8"
           style={{ borderRadius: 40 }}
