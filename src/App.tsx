@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import SearchBoxComponent from './components/SearchBox';
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  useEffect(() => {
+    console.log(process.env.REACT_APP_WEATHER);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <section className="bg-dark-300 h-screen py-36">
-        <div className="container mx-auto bg-dark-600 h-full rounded-3xl p-8">
-          <p className="text-light-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-            rem tenetur sapiente perspiciatis quos incidunt vel, a excepturi
-            omnis doloribus nemo rerum qui libero error quaerat. Optio
-            voluptates fuga aperiam.
-          </p>
+        <div
+          className="container mx-auto bg-dark-900 h-full p-8"
+          style={{ borderRadius: 40 }}
+        >
+          <header>
+            <div className="flex justify-center">
+              <div style={{ width: 500 }}>
+                <SearchBoxComponent />
+              </div>
+            </div>
+          </header>
         </div>
       </section>
 
