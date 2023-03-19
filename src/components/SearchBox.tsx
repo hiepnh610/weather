@@ -1,35 +1,11 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import { MdSearch, MdLocationOn, MdRefresh } from 'react-icons/md';
 import { useQuery } from 'react-query';
 import debounce from 'lodash/debounce';
 
 import { fetchLocation } from '../services/getLocation';
-
-const fakeData = [
-  'Hanoi',
-  'Saigon',
-  'Berlin',
-  'Helsinki',
-  'Moscow',
-  'Paris',
-  'Tokyo',
-  'Nairobi',
-  'Oslo',
-  'Denver',
-  'Rio',
-  'Norway',
-  'San Francisco',
-  'Beijing',
-  'Seattle',
-  'Seoul',
-];
-
-interface LocationType {
-  country: string;
-  lat: number;
-  lon: number;
-  name: string;
-}
+import { LocationType } from '../types';
+import locationStore from '../database/locationStore';
 
 const SearchBoxComponent = () => {
   const [searchValue, setToSearchValue] = useState('');
@@ -37,14 +13,19 @@ const SearchBoxComponent = () => {
   const { isLoading, isError, data, error, refetch } = useQuery(
     ['location'],
     () => fetchLocation(searchValue),
-    { enabled: !!searchValue }
+    { enabled: false }
   );
+  const { setName, setLat, setLon, setCountry } = locationStore();
 
   const onTyping = debounce((e: ChangeEvent<HTMLInputElement>) => {
-    setToSearchValue(e?.target?.value);
+    setToSearchValue(e?.target?.value?.trim());
   }, 300);
 
-  console.log('data', data);
+  useEffect(() => {
+    if (searchValue) {
+      refetch();
+    }
+  }, [searchValue]);
 
   return (
     <div className="bg-dark-800 rounded-4xl">
