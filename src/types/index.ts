@@ -1,6 +1,6 @@
 export interface LocationType {
   country: string;
-  lat: number | null;
-  lon: number | null;
+  lat: number;
+  lon: number;
   name: string;
 }
