@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import SearchBoxComponent from 'components/SearchBox';
+import CurrentWeatherComponent from 'components/weather/CurrentWeather';
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,8 @@ const App = () => {
               </div>
             </div>
           </header>
+
+          <CurrentWeatherComponent />
         </div>
       </section>
 
