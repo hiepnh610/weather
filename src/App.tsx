@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 import SearchBoxComponent from 'components/SearchBox';
-import CurrentWeatherComponent from 'components/weather/CurrentWeather';
+import WeatherComponent from 'components/weather/Weather';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ const App = () => {
           className="container mx-auto bg-dark-900 h-full p-8"
           style={{ borderRadius: 40 }}
         >
-          <header>
+          <header className="mb-8">
             <div className="flex justify-center">
               <div style={{ width: 500 }}>
                 <SearchBoxComponent />
@@ -23,7 +23,7 @@ const App = () => {
             </div>
           </header>
 
-          <CurrentWeatherComponent />
+          <WeatherComponent />
         </div>
       </section>
 

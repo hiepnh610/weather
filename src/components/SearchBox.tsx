@@ -53,14 +53,14 @@ const SearchBoxComponent = () => {
 
         <input
           type="text"
-          className="bg-dark-800 border-none py-4 pr-8 pl-12 rounded-full w-full outline-none text-white text-sm"
+          className="bg-dark-800 border-none py-4 pr-8 pl-14 rounded-full w-full outline-none text-white text-sm"
           placeholder="Type your location to search"
           onChange={onTyping}
         />
       </div>
 
       {data && isSuggestion && (
-        <div className="bg-dark-800 rounded-b-4xl w-full text-white text-sm px-2 pb-4">
+        <div className="bg-dark-800 rounded-b-4xl w-full text-white text-sm px-3 pb-4">
           <nav
             className="overflow-y-scroll overflow-x-hidden pr-2"
             style={{ maxHeight: 400 }}
