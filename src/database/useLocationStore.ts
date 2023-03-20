@@ -15,7 +15,7 @@ const useLocationStore = create<LocationStoreType>()(
       lon: 0,
       name: '',
     },
-    setCurrentLocation: (currentLocation) =>
+    setCurrentLocation: (currentLocation: LocationType) =>
       set((state) => ({
         ...state,
         currentLocation,
