@@ -1,18 +1,24 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
+import { LocationType } from 'types';
 interface LocationStoreType {
-  searchValue: string;
-  setToSearchValue: (q: string) => void;
+  currentLocation: LocationType;
+  setCurrentLocation: (location: LocationType) => void;
 }
 
 const useLocationStore = create<LocationStoreType>()(
   devtools((set) => ({
-    searchValue: '',
-    setToSearchValue: (searchValue) =>
+    currentLocation: {
+      country: '',
+      lat: 0,
+      lon: 0,
+      name: '',
+    },
+    setCurrentLocation: (currentLocation) =>
       set((state) => ({
         ...state,
-        searchValue,
+        currentLocation,
       })),
   }))
 );

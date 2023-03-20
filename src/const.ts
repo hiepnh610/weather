@@ -10,7 +10,7 @@ export const weatherTabId: WeatherTabIdType = {
   week: 'week',
 };
 
-export const weatherTab: WeatherTabType[] = [
+export const durationWeatherTab: WeatherTabType[] = [
   {
     id: weatherTabId.today,
     text: 'Today',
