@@ -17,6 +17,10 @@ module.exports = {
         light: {
           600: '#fafafc',
         },
+        'pale-blue': {
+          300: '#bbd8ec',
+          600: '#adcade',
+        },
       },
     },
   },

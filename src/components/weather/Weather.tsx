@@ -35,7 +35,7 @@ const WeatherComponent: FC = () => {
             <li>
               <button
                 type="button"
-                className="text-dark-300 px-5 py-3 bg-white rounded-full"
+                className="text-dark-300 px-5 py-3 bg-pale-blue-300 rounded-full"
               >
                 Forecast
               </button>
